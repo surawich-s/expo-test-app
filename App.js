@@ -1,23 +1,22 @@
-import * as MediaLibrary from "expo-media-library";
 import * as ImagePicker from "expo-image-picker";
+import * as MediaLibrary from "expo-media-library";
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { captureRef } from "react-native-view-shot";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { captureRef } from "react-native-view-shot";
 import Button from "./components/Button";
-import ImageViewer from "./components/ImageViewer";
 import CircleButton from "./components/CircleButton";
-import IconButton from "./components/IconButton";
-import EmojiPicker from "./components/EmojiPicker";
 import EmojiList from "./components/EmojiList";
+import EmojiPicker from "./components/EmojiPicker";
 import EmojiSticker from "./components/EmojiSticker";
+import IconButton from "./components/IconButton";
+import ImageViewer from "./components/ImageViewer";
 
 const PlaceholderImage = require("./assets/images/background-image.png");
 
 export default function App() {
     const imageRef = useRef();
-
     const [status, requestPermission] = MediaLibrary.usePermissions();
     const [selectedImage, setSelectedImage] = useState(null);
     const [showAppOptions, setShowAppOptions] = useState(false);
