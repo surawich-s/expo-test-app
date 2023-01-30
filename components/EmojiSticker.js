@@ -60,7 +60,7 @@ export default function EmojiSticker({ imageSize, stickerSource }) {
 
     return (
         <PanGestureHandler onGestureEvent={onDrag}>
-            <AnimatedView style={{ top: -350 }}>
+            <AnimatedView style={[containerStyle, { top: -350 }]}>
                 <TapGestureHandler
                     onGestureEvent={onDoubleTap}
                     numberOfTaps={2}
@@ -68,7 +68,10 @@ export default function EmojiSticker({ imageSize, stickerSource }) {
                     <AnimatedImage
                         source={stickerSource}
                         resizeMode="contain"
-                        style={{ width: imageSize, height: imageSize }}
+                        style={[
+                            imageStyle,
+                            { width: imageSize, height: imageSize },
+                        ]}
                     />
                 </TapGestureHandler>
             </AnimatedView>
